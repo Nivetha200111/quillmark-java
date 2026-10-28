@@ -1,0 +1,103 @@
+{
+  "name": "txnpost",
+  "description": "Imported from https://github.com/Nivetha200111/quillmark-mainframe at c2d11cebf032",
+  "program": "TXNPOST",
+  "source": "src/TXNPOST.cbl",
+  "modules": [],
+  "collation": "ebcdic",
+  "copybookDir": "copybooks",
+  "dd": {
+    "input": "TXNIN",
+    "output": "POSTOUT"
+  },
+  "javaConversion": {
+    "dir": "java-conversion",
+    "mainClass": "Txnpost",
+    "origin": "none yet: translate with the converter's run command"
+  },
+  "layoutsNote": "Derived from the copybooks by services/analyzer.",
+  "layouts": {
+    "input": {
+      "record": "TXN-REC",
+      "fields": [
+        {
+          "name": "TXN-ID",
+          "kind": "alnum",
+          "length": 9
+        },
+        {
+          "name": "TXN-TYPE",
+          "kind": "alnum",
+          "length": 1,
+          "values": [
+            "P",
+            "F",
+            "I"
+          ]
+        },
+        {
+          "name": "TXN-AMOUNT",
+          "kind": "numeric",
+          "digits": 7,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "TXN-BALANCE",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "TXN-OD-LIMIT",
+          "kind": "numeric",
+          "digits": 5,
+          "scale": 0,
+          "signed": false
+        }
+      ],
+      "format": "fixed"
+    },
+    "output": {
+      "record": "POST-REC",
+      "fields": [
+        {
+          "name": "POST-TXN-ID",
+          "kind": "alnum",
+          "length": 9
+        },
+        {
+          "name": "POST-CHARGE",
+          "kind": "numeric",
+          "digits": 3,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "POST-NEW-BAL",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "POST-STATUS",
+          "kind": "alnum",
+          "length": 2
+        }
+      ],
+      "format": "fixed"
+    }
+  },
+  "import": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/TXNPOST",
+    "job": "QMK.PROD.JCLLIB/QMKD020"
+  }
+}

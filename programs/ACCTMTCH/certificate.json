@@ -1,0 +1,45 @@
+{
+  "version": "0.1",
+  "program": "ACCTMTCH",
+  "legacy": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/ACCTMTCH",
+    "copybooks": [
+      "QMK.PROD.COPYLIB/MSTREC",
+      "QMK.PROD.COPYLIB/TXREC",
+      "QMK.PROD.COPYLIB/NEWMST",
+      "QMK.PROD.COPYLIB/EXCREC"
+    ],
+    "modules": [],
+    "job": "QMK.PROD.JCLLIB/QMKD010"
+  },
+  "java": {
+    "mainClass": "Acctmtch",
+    "files": [
+      "Acctmtch.java"
+    ]
+  },
+  "verification": {
+    "passed": 1585,
+    "total": 1585,
+    "stdoutMatch": true,
+    "seed": 4242,
+    "verifier": {
+      "repository": "https://github.com/Nivetha200111/Diocle",
+      "commit": "697ad34c32cb6f6ec778b6973362f5d8a6915c40",
+      "gnucobol": "cobc (GnuCOBOL) 3.2.0"
+    }
+  },
+  "agent": {
+    "runId": "acctmtch-20261028-194951",
+    "model": "muse-spark-1.3-contributor",
+    "mode": "translate",
+    "rounds": 0,
+    "modelCalls": 1,
+    "totalTokens": 21355,
+    "estimatedCostUsd": 0.00392,
+    "memoryLessonsUsed": 8
+  },
+  "issuedAt": "2026-10-28T14:48:10+00:00"
+}

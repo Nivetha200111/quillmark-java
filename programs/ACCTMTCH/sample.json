@@ -1,0 +1,166 @@
+{
+  "name": "acctmtch",
+  "description": "Imported from https://github.com/Nivetha200111/quillmark-mainframe at c2d11cebf032",
+  "program": "ACCTMTCH",
+  "source": "src/ACCTMTCH.cbl",
+  "modules": [],
+  "collation": "ebcdic",
+  "copybookDir": "copybooks",
+  "javaConversion": {
+    "dir": "java-conversion",
+    "mainClass": "Acctmtch",
+    "origin": "none yet: translate with the converter's run command"
+  },
+  "layoutsNote": "Derived from the copybooks by services/analyzer.",
+  "files": [
+    {
+      "dd": "MSTIN",
+      "direction": "input",
+      "layout": {
+        "record": "MS-REC",
+        "fields": [
+          {
+            "name": "MS-ACCT-ID",
+            "kind": "alnum",
+            "length": 8
+          },
+          {
+            "name": "MS-BALANCE",
+            "kind": "numeric",
+            "digits": 9,
+            "scale": 2,
+            "signed": true,
+            "sign": "leading-separate"
+          },
+          {
+            "name": "MS-STATUS",
+            "kind": "alnum",
+            "length": 4,
+            "values": [
+              "FRZN",
+              "ACTV"
+            ]
+          }
+        ],
+        "format": "fixed"
+      }
+    },
+    {
+      "dd": "TXNIN",
+      "direction": "input",
+      "layout": {
+        "record": "TX-REC",
+        "fields": [
+          {
+            "name": "TX-ACCT-ID",
+            "kind": "alnum",
+            "length": 8
+          },
+          {
+            "name": "TX-AMOUNT",
+            "kind": "numeric",
+            "digits": 7,
+            "scale": 2,
+            "signed": true,
+            "sign": "leading-separate"
+          },
+          {
+            "name": "TX-TYPE",
+            "kind": "alnum",
+            "length": 1,
+            "values": [
+              "C",
+              "D"
+            ]
+          }
+        ],
+        "format": "fixed"
+      }
+    },
+    {
+      "dd": "NEWMST",
+      "direction": "output",
+      "layout": {
+        "record": "NM-REC",
+        "fields": [
+          {
+            "name": "NM-ACCT-ID",
+            "kind": "alnum",
+            "length": 8
+          },
+          {
+            "name": "NM-BALANCE",
+            "kind": "numeric",
+            "digits": 9,
+            "scale": 2,
+            "signed": true,
+            "sign": "leading-separate"
+          },
+          {
+            "name": "NM-STATUS",
+            "kind": "alnum",
+            "length": 4
+          },
+          {
+            "name": "NM-TXN-COUNT",
+            "kind": "numeric",
+            "digits": 4,
+            "scale": 0,
+            "signed": false
+          }
+        ],
+        "format": "fixed"
+      }
+    },
+    {
+      "dd": "EXCOUT",
+      "direction": "output",
+      "layout": {
+        "record": "EX-REC",
+        "fields": [
+          {
+            "name": "EX-ACCT-ID",
+            "kind": "alnum",
+            "length": 8
+          },
+          {
+            "name": "EX-AMOUNT",
+            "kind": "numeric",
+            "digits": 7,
+            "scale": 2,
+            "signed": true,
+            "sign": "leading-separate"
+          },
+          {
+            "name": "EX-REASON",
+            "kind": "alnum",
+            "length": 12
+          }
+        ],
+        "format": "fixed"
+      }
+    }
+  ],
+  "sharedKeys": [
+    [
+      [
+        "MSTIN",
+        "MS-ACCT-ID"
+      ],
+      [
+        "TXNIN",
+        "TX-ACCT-ID"
+      ]
+    ]
+  ],
+  "sortedBy": {
+    "MSTIN": "MS-ACCT-ID",
+    "TXNIN": "TX-ACCT-ID"
+  },
+  "import": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/ACCTMTCH",
+    "job": "QMK.PROD.JCLLIB/QMKD010"
+  }
+}

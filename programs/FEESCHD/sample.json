@@ -1,0 +1,118 @@
+{
+  "name": "feeschd",
+  "description": "Imported from https://github.com/Nivetha200111/quillmark-mainframe at c2d11cebf032",
+  "program": "FEESCHD",
+  "source": "src/FEESCHD.cbl",
+  "modules": [],
+  "collation": "ebcdic",
+  "copybookDir": "copybooks",
+  "dd": {
+    "input": "FEEIN",
+    "output": "CHGOUT"
+  },
+  "javaConversion": {
+    "dir": "java-conversion",
+    "mainClass": "Feeschd",
+    "origin": "none yet: translate with the converter's run command"
+  },
+  "layoutsNote": "Derived from the copybooks by services/analyzer.",
+  "layouts": {
+    "input": {
+      "record": "FEE-REC",
+      "fields": [
+        {
+          "name": "FEE-ACCT-ID",
+          "kind": "alnum",
+          "length": 10
+        },
+        {
+          "name": "FEE-PRODUCT",
+          "kind": "alnum",
+          "length": 1,
+          "values": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        {
+          "name": "FEE-AVG-BAL",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "FEE-TXN-COUNT",
+          "kind": "numeric",
+          "digits": 4,
+          "scale": 0,
+          "signed": false
+        },
+        {
+          "name": "FEE-MONTH-DAYS",
+          "kind": "numeric",
+          "digits": 2,
+          "scale": 0,
+          "signed": false
+        }
+      ],
+      "format": "fixed"
+    },
+    "output": {
+      "record": "CHG-REC",
+      "fields": [
+        {
+          "name": "CHG-ACCT-ID",
+          "kind": "alnum",
+          "length": 10
+        },
+        {
+          "name": "CHG-BASE",
+          "kind": "numeric",
+          "digits": 3,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "CHG-TXN-FEE",
+          "kind": "numeric",
+          "digits": 3,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "CHG-OD-INT",
+          "kind": "numeric",
+          "digits": 5,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "CHG-TOTAL",
+          "kind": "numeric",
+          "digits": 3,
+          "scale": 2,
+          "signed": true,
+          "sign": "leading-separate"
+        },
+        {
+          "name": "CHG-CODE",
+          "kind": "alnum",
+          "length": 2
+        }
+      ],
+      "format": "fixed"
+    }
+  },
+  "import": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/FEESCHD",
+    "job": "QMK.PROD.JCLLIB/QMKM010"
+  }
+}
