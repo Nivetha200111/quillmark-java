@@ -1,0 +1,43 @@
+{
+  "version": "0.1",
+  "program": "DAYCTRL",
+  "legacy": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/DAYCTRL",
+    "copybooks": [
+      "QMK.PROD.COPYLIB/DAYREC",
+      "QMK.PROD.COPYLIB/CTLREC"
+    ],
+    "modules": [],
+    "job": "QMK.PROD.JCLLIB/QMKD010"
+  },
+  "java": {
+    "mainClass": "Dayctrl",
+    "files": [
+      "Dayctrl.java"
+    ]
+  },
+  "verification": {
+    "passed": 1017,
+    "total": 1017,
+    "stdoutMatch": true,
+    "seed": 4242,
+    "verifier": {
+      "repository": "https://github.com/Nivetha200111/Diocle",
+      "commit": "697ad34c32cb6f6ec778b6973362f5d8a6915c40",
+      "gnucobol": "cobc (GnuCOBOL) 3.2.0"
+    }
+  },
+  "agent": {
+    "runId": "dayctrl-20261028-194951",
+    "model": "muse-spark-1.3-contributor",
+    "mode": "translate",
+    "rounds": 0,
+    "modelCalls": 4,
+    "totalTokens": 96745,
+    "estimatedCostUsd": 0.017104,
+    "memoryLessonsUsed": 8
+  },
+  "issuedAt": "2026-10-28T14:48:10+00:00"
+}

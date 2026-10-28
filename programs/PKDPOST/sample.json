@@ -1,0 +1,136 @@
+{
+  "name": "pkdpost",
+  "description": "Imported from https://github.com/Nivetha200111/quillmark-mainframe at c2d11cebf032",
+  "program": "PKDPOST",
+  "source": "src/PKDPOST.cbl",
+  "modules": [],
+  "collation": "ebcdic",
+  "copybookDir": "copybooks",
+  "dd": {
+    "input": "PKIN",
+    "output": "PKOUT"
+  },
+  "javaConversion": {
+    "dir": "java-conversion",
+    "mainClass": "Pkdpost",
+    "origin": "none yet: translate with the converter's run command"
+  },
+  "layoutsNote": "Derived from the copybooks by services/analyzer.",
+  "layouts": {
+    "input": {
+      "record": "PK-REC",
+      "fields": [
+        {
+          "name": "PK-ACCT",
+          "kind": "alnum",
+          "length": 10
+        },
+        {
+          "name": "PK-BAL",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 2,
+          "signed": true,
+          "usage": "packed"
+        },
+        {
+          "name": "PK-RATE",
+          "kind": "numeric",
+          "digits": 1,
+          "scale": 4,
+          "signed": false,
+          "usage": "packed"
+        },
+        {
+          "name": "PK-DAYS",
+          "kind": "numeric",
+          "digits": 4,
+          "scale": 0,
+          "signed": true,
+          "usage": "binary"
+        },
+        {
+          "name": "PK-ADJ",
+          "kind": "numeric",
+          "digits": 5,
+          "scale": 2,
+          "signed": true,
+          "sign": "trailing"
+        },
+        {
+          "name": "PK-LIMIT",
+          "kind": "numeric",
+          "digits": 5,
+          "scale": -2,
+          "signed": false
+        },
+        {
+          "name": "PK-ITEMS",
+          "kind": "numeric",
+          "digits": 4,
+          "scale": 0,
+          "signed": true,
+          "usage": "binary-native"
+        }
+      ],
+      "format": "fixed"
+    },
+    "output": {
+      "record": "PO-REC",
+      "fields": [
+        {
+          "name": "PO-ACCT",
+          "kind": "alnum",
+          "length": 10
+        },
+        {
+          "name": "PO-INT",
+          "kind": "numeric",
+          "digits": 7,
+          "scale": 2,
+          "signed": true,
+          "usage": "packed"
+        },
+        {
+          "name": "PO-NEW-BAL",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 2,
+          "signed": true,
+          "usage": "packed"
+        },
+        {
+          "name": "PO-HEADROOM",
+          "kind": "numeric",
+          "digits": 7,
+          "scale": 2,
+          "signed": true,
+          "sign": "trailing-separate"
+        },
+        {
+          "name": "PO-ITEM-UNITS",
+          "kind": "numeric",
+          "digits": 9,
+          "scale": 0,
+          "signed": true,
+          "usage": "binary"
+        },
+        {
+          "name": "PO-REVERSAL",
+          "kind": "numeric",
+          "digits": 5,
+          "scale": 2,
+          "signed": true,
+          "sign": "trailing"
+        }
+      ],
+      "format": "fixed"
+    }
+  },
+  "import": {
+    "repository": "https://github.com/Nivetha200111/quillmark-mainframe",
+    "commit": "c2d11cebf032dbc52e7be956d5b669e30a7a360a",
+    "path": "QMK.PROD.COBOL/PKDPOST",
+    "job": "QMK.PROD.JCLLIB/QMKW010"
+  }
+}
