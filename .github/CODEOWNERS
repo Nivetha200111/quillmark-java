@@ -1,0 +1,4 @@
+# SYNTHETIC demo repository for the Diocle hackathon project.
+# On pull_request events GitHub runs the workflow as it exists in the PR, so a PR could edit the check itself.
+# Changes to CI must be reviewed by the owner; Diocle delivery PRs only touch programs/.
+/.github/ @Nivetha200111
